@@ -8,30 +8,33 @@
       <h5>Register</h5>
     </div>
     <div class="card-body">
+
+      @include('shared._errors')
+
       <form method="POST" action="{{ route('users.store') }}">
           {{ csrf_field() }}
 	  
           <div class="form-group">
-            <label for="name">使用者名稱：</label>
+            <label for="name">Username:</label>
             <input type="text" name="name" class="form-control" value="{{ old('name') }}">
           </div>
 
           <div class="form-group">
-            <label for="email">電子信箱：</label>
+            <label for="email">E-mail:</label>
             <input type="text" name="email" class="form-control" value="{{ old('email') }}">
           </div>
 
           <div class="form-group">
-            <label for="password">密碼設定：</label>
+            <label for="password">Password:</label>
             <input type="password" name="password" class="form-control" value="{{ old('password') }}">
           </div>
 
           <div class="form-group">
-            <label for="password_confirmation">再次輸入密碼：</label>
+            <label for="password_confirmation">Password again:</label>
             <input type="password" name="password_confirmation" class="form-control" value="{{ old('password_confirmation') }}">
           </div>
 
-          <button type="submit" class="btn btn-primary">註冊</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
   </div>
