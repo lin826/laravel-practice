@@ -10,7 +10,7 @@ class UsersController extends Controller
     public function __construct()
     {
         $this->middleware('auth', [
-            'except' => ['show', 'create', 'store']
+            'except' => ['show', 'create', 'store', 'index']
         ]);
 
         $this->middleware('guest', [
@@ -46,6 +46,12 @@ class UsersController extends Controller
         return redirect()->route('users.show', [$user]);
     }
 
+    public function edit(User $user)
+    {
+	$this->authorize('update', $user);
+        return view('users.edit', compact('user'));
+    }
+
     public function update(User $user, Request $request)
     {
         $this->authorize('update', $user);
@@ -67,9 +73,9 @@ class UsersController extends Controller
         return redirect()->route('users.show', $user->id);
     }
 
-    public function edit(User $user)
+    public function index()
     {
-	$this->authorize('update', $user);
-        return view('users.edit', compact('user'));
+        $users = User::paginate(10);
+        return view('users.index', compact('users'));
     }
 }
