@@ -68,7 +68,7 @@ class UsersController extends Controller
         }
         $user->update($data);
 
-        session()->flash('success', 'Update sucessfully!');
+        session()->flash('success', 'Update successfully!');
 
         return redirect()->route('users.show', $user->id);
     }
@@ -77,5 +77,13 @@ class UsersController extends Controller
     {
         $users = User::paginate(10);
         return view('users.index', compact('users'));
+    }
+
+    public function destroy(User $user)
+    {
+        $this->authorize('destroy', $user);
+        $user->delete();
+        session()->flash('success', 'Delete the user successfully!');
+        return back();
     }
 }
