@@ -39,6 +39,8 @@
 </div>
 @endsection
 
-————————————————
-Author: Summer
-Reference: https://learnku.com/courses/laravel-essential-training/6.x/password-reset/5490
+<!--
+  ————————————————
+  Original Author: Summer
+  Reference: https://learnku.com/courses/laravel-essential-training/6.x/password-reset/5490
+-->
