@@ -57,4 +57,16 @@ class User extends Authenticatable
     {
         return $this->hasMany(Status::class);
     }
+
+    public function feed()
+    {
+        return $this->statuses()
+                    ->orderBy('created_at', 'desc');
+    }
 }
+
+/**
+ * ————————————————
+ * Original Author：Summer
+ * Reference: https://learnku.com/courses/laravel-essential-training/6.x/according-to-weibo/5495
+ */
