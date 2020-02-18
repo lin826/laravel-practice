@@ -5,7 +5,7 @@
   <title>Register Conformation Link</title>
 </head>
 <body>
-  <h1>Thanks for registering on Weibo App!</h1>
+  <h1>Thanks for joining Weibo App!</h1>
 
   <p>
     Please click the link below to finish registration:

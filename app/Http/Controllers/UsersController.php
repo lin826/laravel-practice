@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Auth;
 use Mail;
 
 class UsersController extends Controller
@@ -112,13 +113,17 @@ class UsersController extends Controller
     {
         $view = 'emails.confirm';
         $data = compact('user');
-        $from = 'summer@example.com';
-        $name = 'Summer';
         $to = $user->email;
-        $subject = "Thanks for registering Weibo App! Please check your E-mail mailbox.";
+        $subject = "Thanks for joining Weibo App! Please check your E-mail mailbox.";
 
-        Mail::send($view, $data, function ($message) use ($from, $name, $to, $subject) {
+        Mail::send($view, $data, function ($message) use ($to, $subject) {
             $message->to($to)->subject($subject);
         });
     }
 }
+
+/**
+ * ————————————————
+ * Original Author：Summer
+ * Reference: https://learnku.com/courses/laravel-essential-training/6.x/according-to-weibo/5495
+ */
