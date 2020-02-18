@@ -112,7 +112,7 @@ class UsersController extends Controller
         $subject = "Thanks for registering Weibo App! Please check your E-mail mailbox.";
 
         Mail::send($view, $data, function ($message) use ($from, $name, $to, $subject) {
-            $message->from($from, $name)->to($to)->subject($subject);
+            $message->to($to)->subject($subject);
         });
     }
 }
