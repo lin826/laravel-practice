@@ -25,6 +25,14 @@ class StatusesController extends Controller
         session()->flash('success', 'Publish Successfully!');
         return redirect()->back();
     }
+
+    public function destroy(Status $status)
+    {
+        $this->authorize('destroy', $status);
+        $status->delete();
+        session()->flash('success', 'Your status is already deleted!');
+        return redirect()->back();
+    }
 }
 
 /**
